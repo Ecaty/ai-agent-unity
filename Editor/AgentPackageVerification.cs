@@ -40,6 +40,11 @@ namespace Ecaty.Agents.Editor
                 var message = view.AppendMessage("<b>literal model text</b>", false);
                 Require(!message.enableRichText && message.text == "<b>literal model text</b>", "Model text interpreted as UI markup");
                 checks.Add("model text remains literal; no Flecs or provider SDK dependency");
+                view.SetHistoryExpanded(false);
+                Require(view.Root.Q<ScrollView>("messages").style.display.value == DisplayStyle.None, "History did not collapse");
+                view.SetHistoryExpanded(true);
+                Require(view.Root.Q<ScrollView>("messages").style.display.value == DisplayStyle.Flex, "History did not reopen");
+                checks.Add("conversation can be collapsed and reopened without losing messages");
             }
             var disposed = new AgentChatView(layout);
             disposed.Dispose();

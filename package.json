@@ -1,9 +1,9 @@
 {
   "name": "com.ecaty.ai-agent",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "displayName": "Ecaty AI Agent",
   "description": "Reusable provider-neutral AI chat UI and provider, tool and speech contracts for Unity.",
-  "unity": "6000.4",
+  "unity": "6000.6",
   "author": {
     "name": "Ecaty",
     "url": "https://github.com/Ecaty"

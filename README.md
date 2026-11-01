@@ -1,6 +1,6 @@
 # Ecaty AI Agent
 
-Reusable Unity 6000.4 UI Toolkit chat, provider/auth/tool/speech contracts, conversation controller, owning-thread dispatcher and developer trace viewer. The Windows ChatGPT adapter uses the documented local/open-source account flow, protected credential storage and streamed local tools. The package has no Flecs dependency; the application supplies instructions and callbacks.
+Reusable Unity 6000.6 UI Toolkit chat, provider/auth/tool/speech contracts, conversation controller, owning-thread dispatcher and developer trace viewer. The Windows ChatGPT adapter uses the documented local/open-source account flow, protected credential storage and streamed local tools. The package has no Flecs dependency; the application supplies instructions and callbacks.
 
 Provide AgentUiAssets (UXML + PanelSettings), an IAgentProvider/authenticator and host tools to AgentChatPanel.Create. A service adapter can be replaced without changing the view. Font/icon assets are bundled locally: Google Material Symbols Rounded, Apache-2.0; source/hashes/license in Runtime/UI/Resources. Microphone is disabled until an ISpeechToText implementation is wired.
 
@@ -11,3 +11,5 @@ Windows DPAPI state uses LocalAppData/<app>/Agents/chatgpt.dat. Disconnect clear
 Verified with synthetic OAuth/Responses transport and real Ecaty world/tools, pending live account/inference verification. Account/plan eligibility is provider-controlled; other platforms, IL2CPP and speech need separate implementations/tests.
 
 Canonical context: [AGENTS](https://github.com/Ecaty/Ecaty/blob/main/AGENTS.md), [PROJECT](https://github.com/Ecaty/Ecaty/blob/main/docs/PROJECT.md), [DEVELOPMENT](https://github.com/Ecaty/Ecaty/blob/main/docs/DEVELOPMENT.md), [AI integration](https://github.com/Ecaty/Ecaty/blob/main/docs/AI-INTEGRATION.md), [STATUS](https://github.com/Ecaty/Ecaty/blob/main/docs/STATUS.md).
+
+The runtime host uses PanelRenderer with VersionedUIReloadCallback. The centered composer uses custom USS, bundled icon glyphs, a connection indicator and collapsible conversation. Technical diagnostics stay in the Editor trace window. Minimum Unity: 6000.6.
