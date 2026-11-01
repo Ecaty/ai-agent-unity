@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <ui:Style src="AgentChat.uss" />
+    <ui:VisualElement name="agentChat" class="agent-chat">
+        <ui:ScrollView name="messages" class="agent-chat__messages" />
+        <ui:VisualElement class="agent-chat__composer">
+            <ui:TextField name="messageInput" class="agent-chat__input" multiline="true" tooltip="Message your AI" />
+            <ui:Button name="microphoneButton" text="Mic" class="agent-chat__button" tooltip="Dictate a message" />
+            <ui:Button name="sendButton" text="Send" class="agent-chat__button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

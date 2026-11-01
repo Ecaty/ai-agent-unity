@@ -1,0 +1,6 @@
+{
+  "name": "Ecaty.Agents.Editor",
+  "references": [ "Ecaty.Agents" ],
+  "includePlatforms": [ "Editor" ],
+  "autoReferenced": true
+}
