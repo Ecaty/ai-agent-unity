@@ -12,6 +12,9 @@ namespace Ecaty.Agents.Editor
         public static string RunAll()
         {
             var checks = new List<string>();
+            var icons = UnityEngine.Resources.Load<UnityEngine.Font>("MaterialSymbolsRounded");
+            Require(icons && icons.HasCharacter('\ue163') && icons.HasCharacter('\ue029') && icons.HasCharacter('\ue7fd'), "Material Symbols font/glyphs missing");
+            checks.Add("bundled Google Material Symbols font imports with send/microphone/account glyphs");
             var layout = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Packages/com.ecaty.ai-agent/Runtime/UI/AgentChat.uxml");
             Require(layout, "Chat UXML did not import");
             using (var view = new AgentChatView(layout))

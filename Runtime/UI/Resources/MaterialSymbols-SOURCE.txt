@@ -1,0 +1,13 @@
+Google Material Symbols Rounded
+Source: https://github.com/google/material-design-icons
+Revision: 10ecc14790612ca8fd164e3f4ffe9c16fc50d5b7
+File: variablefont/MaterialSymbolsRounded[FILL,GRAD,opsz,wght].ttf
+License: Apache-2.0, see GoogleMaterialIcons-LICENSE.txt
+
+Static instance for predictable Unity font import, generated with fontTools 4.42.1:
+instantiateVariableFont(font, {"FILL":0,"GRAD":0,"opsz":24,"wght":400}, inplace=True)
+All glyphs retained. Use Unicode codepoints rather than browser ligatures.
+No Google Fonts network request is made by the app.
+
+Upstream SHA256: 7e74e36533ccee12c2b81e75bfcf3ccf123d3bb7e7e46d65d94445f23db0c97c
+Static SHA256: 8426c05c09f9948527e05b774e54cc189ba805b1e4c94f5e90ede90ddaec4281

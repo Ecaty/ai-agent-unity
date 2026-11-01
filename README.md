@@ -1,18 +1,13 @@
-# Unity AI Agent
+# Ecaty AI Agent
 
-Reusable Unity package `com.ecaty.ai-agent`, independent of Flecs and of any AI vendor. It provides a minimal UI Toolkit chat view (messages, input, Send and Mic), generic provider/authentication/tool/speech interfaces, and an Editor verification entry point.
+Reusable Unity 6000.4 UI Toolkit chat, provider/auth/tool/speech contracts, conversation controller, owning-thread dispatcher and developer trace viewer. The Windows ChatGPT adapter uses the documented local/open-source account flow, protected credential storage and streamed local tools. The package has no Flecs dependency; the application supplies instructions and callbacks.
 
-## Ownership
+Provide AgentUiAssets (UXML + PanelSettings), an IAgentProvider/authenticator and host tools to AgentChatPanel.Create. A service adapter can be replaced without changing the view. Font/icon assets are bundled locally: Google Material Symbols Rounded, Apache-2.0; source/hashes/license in Runtime/UI/Resources. Microphone is disabled until an ISpeechToText implementation is wired.
 
-- `Runtime/UI`: shared UXML/USS and disposable view bindings. The view emits input events; it has no credentials, API URLs or model selection logic.
-- `Runtime/AgentContracts.cs`: `IAgentProvider`, optional `IAgentAuthenticator`, `IAgentTool`, `ISpeechToText` and conversation request data.
-- Future provider adapters, authentication/session handling and agent orchestration belong in this package. ChatGPT is first; other services require their own adapter and supported access method.
-- The consuming app supplies instructions and world/tool callbacks. This package must not reference `Ecaty.Flecs`, a native DLL or product-specific scenes.
+**Ecaty > Agent Trace** shows grouped, collapsible local requests/tool results with search, errors and copy. Configure the collector explicitly; do not log authentication, publish private traces or confuse this developer window with the product UI. Capture is off unless the host enables it. The Editor assembly owns the viewer; runtime code owns the collector.
 
-Clone `Runtime/UI/AgentChat.uxml` into an app-owned `UIDocument` with configured PanelSettings. Construct `AgentChatView` with the VisualTreeAsset, add its Root to the document, subscribe to MessageSubmitted/DictationRequested and enable it only when the respective services are ready. Call view methods on Unity's main thread and dispose bindings when removing the view.
+Windows DPAPI state uses LocalAppData/<app>/Agents/chatgpt.dat. Disconnect clears this application's active credentials; it does not revoke server authorization. No Codex credentials, API keys, paid fallback or existing ChatGPT history are used.
 
-The package includes no provider implementation, credentials, authentication flow, model calls, microphone recorder or speech engine yet. No fake AI replies are supplied, and Ecaty's startup does not mount the panel until an actual provider/session is wired. Provider-neutral UI does not imply every provider supports account sign-in, tools or voice.
+Verified with synthetic OAuth/Responses transport and real Ecaty world/tools, pending live account/inference verification. Account/plan eligibility is provider-controlled; other platforms, IL2CPP and speech need separate implementations/tests.
 
-Verify in Unity with `Ecaty.Agents.Editor.AgentPackageVerification.RunAll()`. This checks import and event/state behavior, not visual appearance or a live AI service.
-
-Canonical project context: [Ecaty AGENTS](https://github.com/Ecaty/Ecaty/blob/main/AGENTS.md), [PROJECT](https://github.com/Ecaty/Ecaty/blob/main/docs/PROJECT.md), [DEVELOPMENT](https://github.com/Ecaty/Ecaty/blob/main/docs/DEVELOPMENT.md), [STATUS](https://github.com/Ecaty/Ecaty/blob/main/docs/STATUS.md).
+Canonical context: [AGENTS](https://github.com/Ecaty/Ecaty/blob/main/AGENTS.md), [PROJECT](https://github.com/Ecaty/Ecaty/blob/main/docs/PROJECT.md), [DEVELOPMENT](https://github.com/Ecaty/Ecaty/blob/main/docs/DEVELOPMENT.md), [AI integration](https://github.com/Ecaty/Ecaty/blob/main/docs/AI-INTEGRATION.md), [STATUS](https://github.com/Ecaty/Ecaty/blob/main/docs/STATUS.md).

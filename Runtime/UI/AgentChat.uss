@@ -6,6 +6,8 @@
     background-color: rgba(24, 26, 31, 0.96);
     border-radius: 10px;
 }
+.agent-chat__header { flex-direction: row; align-items: center; margin-bottom: 6px; }
+.agent-chat__status { flex-grow: 1; white-space: normal; }
 .agent-chat__messages { flex-grow: 1; }
 .agent-chat__composer { flex-direction: row; align-items: center; margin-top: 6px; }
 .agent-chat__input { flex-grow: 1; margin-right: 6px; }
@@ -16,6 +18,6 @@
     border-width: 0;
     border-radius: 6px;
 }
-.agent-chat__button { margin-left: 4px; padding: 8px; border-width: 0; border-radius: 6px; }
+.agent-chat__button { margin-left: 4px; width: 30px; height: 30px; padding: 4px; border-width: 0; border-radius: 6px; align-items: center; justify-content: center; }
 .agent-chat__message { white-space: normal; margin-bottom: 8px; padding: 6px; }
 .agent-chat__message--user { background-color: #303640; border-radius: 6px; }
